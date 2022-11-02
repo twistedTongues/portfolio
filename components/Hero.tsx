@@ -3,10 +3,20 @@ import Image from "next/image";
 import { Cursor, useTypewriter } from "react-simple-typewriter";
 import { BackgroundCircles } from "./BackgroundCircles";
 import Link from "next/link";
+import { PageInfo } from "../typings";
+import { urlFor } from "../sanity";
 
-export const Hero = (props: {}) => {
+type Props = {
+  pageInfo: PageInfo;
+};
+
+export const Hero = ({ pageInfo }: Props) => {
   const [text, count] = useTypewriter({
-    words: ["Developer", "Designer", "Creator"],
+    words: [
+      `Hi, My Name is ${pageInfo?.name}`,
+      "Guy-who-loves-tea.ts",
+      "<ButLovesToCodeMore />",
+    ],
     loop: true,
     delaySpeed: 2000,
   });
@@ -22,13 +32,13 @@ export const Hero = (props: {}) => {
           className="rounded-full object-contain"
           alt="photo"
           fill
-          src="https://cdn.sanity.io/images/ltuexkre/production/a766c574c295f2103c63c2dfdf675557c664d016-600x600.png"
+          src={urlFor(pageInfo?.heroImage).url()}
         />
       </div>
 
       <div className="z-20">
         <h2 className="text-sm uppercase text-gray-500 pb-2 tracking-[15px]">
-          Software Engineer
+          {pageInfo?.role}
         </h2>
         <h1 className="text-5xl lg:text-6xl font-semibold px-10">
           <span className="mr-3">{text}</span>

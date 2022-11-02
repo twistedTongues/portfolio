@@ -1,8 +1,13 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Project } from "../typings";
+import { urlFor } from "../sanity";
 
-export const Projects = (props: {}) => {
-  const projects = [1, 2, 3, 4, 5];
+type Props = {
+  projects: Project[];
+};
+
+export const Projects = ({ projects }: Props) => {
   return (
     <motion.div
       initial={{
@@ -22,7 +27,7 @@ export const Projects = (props: {}) => {
         snap-mandatory z-20 scrollbar scrollbar-thin scrollbar-track-gray-400/20
         scrollbar-thumb-[#F7AB0A]/80"
       >
-        {projects.map((project, i) => (
+        {projects?.map((project, i) => (
           <div
             className="w-screen flex-shrink-0 snap-center flex flex-col space-y-5 items-center
             justify-center p-20 md:p-44 h-screen"
@@ -36,7 +41,7 @@ export const Projects = (props: {}) => {
               transition={{ duration: 1.2 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              src=""
+              src={urlFor(project?.image).url()}
               alt="project"
             />
 
@@ -45,15 +50,24 @@ export const Projects = (props: {}) => {
                 <span className="underline decoration-[#F7AB0A]">
                   Case Study {i + 1} of {projects.length}:
                 </span>{" "}
-                UPS Clone
+                {project?.title}
               </h4>
+
+              {project?.technologies.map((technology) => (
+                <div
+                  key={technology._id}
+                  className="flex items-center space-x-2 justify-center"
+                >
+                  <img
+                    className="h-10 w-10"
+                    alt="tech image"
+                    src={urlFor(technology?.image).url()}
+                  />
+                </div>
+              ))}
+
               <p className="text-lg text-center md:text-left">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
-                mollitia, molestiae quas vel sint commodi repudiandae
-                consequuntur voluptatum laborum numquam blanditiis harum
-                quisquam eius sed odit fugiat iusto fuga praesentium optio,
-                eaque rerum! Provident similique accusantium nemo autem.
-                Veritatis obcaecati tenetur iure eius earum ut molestias
+                {project?.summary}
               </p>
             </div>
           </div>
