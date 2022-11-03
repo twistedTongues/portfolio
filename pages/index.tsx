@@ -17,8 +17,6 @@ import { fetchSkills } from "../utils/fetchSkills";
 import { fetchProjects } from "../utils/fetchProjects";
 import { fetchSocials } from "../utils/fetchSocials";
 
-// make default export for components
-
 type Props = {
   pageInfo: PageInfo;
   experiences: Experience[];
