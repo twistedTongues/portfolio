@@ -14,7 +14,7 @@ type Props = {
   pageInfo: PageInfo;
 };
 
-export const ContactMe = ({ pageInfo }: Props) => {
+const ContactMe = ({ pageInfo }: Props) => {
   const {
     register,
     handleSubmit,
@@ -99,3 +99,5 @@ export const ContactMe = ({ pageInfo }: Props) => {
     </div>
   );
 };
+
+export default ContactMe;

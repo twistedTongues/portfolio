@@ -7,7 +7,7 @@ type Props = {
   projects: Project[];
 };
 
-export const Projects = ({ projects }: Props) => {
+const Projects = ({ projects }: Props) => {
   return (
     <motion.div
       initial={{
@@ -78,3 +78,5 @@ export const Projects = ({ projects }: Props) => {
     </motion.div>
   );
 };
+
+export default Projects;

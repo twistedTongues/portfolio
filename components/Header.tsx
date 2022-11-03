@@ -8,7 +8,7 @@ type Props = {
   socials: Social[];
 };
 
-export const Header = ({ socials }: Props) => {
+const Header = ({ socials }: Props) => {
   return (
     <header
       className="sticky top-0 p-5 flex items-start justify-between
@@ -20,7 +20,6 @@ export const Header = ({ socials }: Props) => {
         transition={{ duration: 1.3 }}
         className="flex flex-row items-center"
       >
-        {/* Social Icons */}
         {socials.map((social) => (
           <SocialIcon
             key={social._id}
@@ -52,3 +51,5 @@ export const Header = ({ socials }: Props) => {
     </header>
   );
 };
+
+export default Header;

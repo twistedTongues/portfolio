@@ -7,7 +7,7 @@ type Props = {
   skills: SkillType[];
 };
 
-export const Skills = ({ skills }: Props) => {
+const Skills = ({ skills }: Props) => {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -40,3 +40,5 @@ export const Skills = ({ skills }: Props) => {
     </motion.div>
   );
 };
+
+export default Skills;
