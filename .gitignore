@@ -8,8 +8,6 @@
 # testing
 /coverage
 
-sanity/node_modules
-
 # next.js
 /.next/
 /out/
@@ -36,3 +34,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# sanity
+sanity/node_modules
+sanity/yarn-error.log
+sanity/yarn.lock
+
