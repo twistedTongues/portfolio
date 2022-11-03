@@ -11,7 +11,7 @@ type Props = {
 const ExperienceCard = ({ experience }: Props) => {
   return (
     <article className="flex flex-col rounded-lg items-center space-y-7 flex-shrink-0 w-[500px] md:w-[600px] xl:w-[900px] snap-center bg-[#292929] p-10 hover:opacity-100 opacity-40 cursor-pointer transtition-opacity duration-200 overflow-hidden">
-      <motion.img
+      <motion.div
         initial={{
           y: -100,
           opacity: 0,
@@ -19,10 +19,15 @@ const ExperienceCard = ({ experience }: Props) => {
         transition={{ duration: 1.2 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="w-32 h-32 rounded-full xl:w-[200px] xl:h-[200px] object-cover object-center"
-        src={urlFor(experience?.companyImage).url()}
-        alt="company logo"
-      />
+        className="relative w-32 h-32 xl:w-[200px] xl:h-[200px] "
+      >
+        <Image
+          className="absolute rounded-full object-cover object-center"
+          fill
+          src={urlFor(experience?.companyImage).url()}
+          alt="company-logo"
+        />
+      </motion.div>
 
       <div className="px-0 md:px-10">
         <h4 className="text-4xl font-light">{experience?.jobTitle}</h4>
@@ -33,7 +38,7 @@ const ExperienceCard = ({ experience }: Props) => {
               <Image
                 priority
                 className="rounded-full object-contain"
-                alt="photo"
+                alt="tech-image"
                 fill
                 src={urlFor(technology?.image).url()}
               />
@@ -47,16 +52,15 @@ const ExperienceCard = ({ experience }: Props) => {
             : new Date(experience.dateEnded).toDateString()}
         </p>
 
-        <ul
-          className="list-disc space-y-4 ml-5 pr-5 text-lg h-96 max-w-4/5 overflow-scroll 
-          scrollbar-thin scrollbar-track-black scrollbar-thumb-[#F7AB0A]/80"
-          // className="list-disc space-y-4 ml-5 text-lg h-96 overflow-y-scroll
-          // scrollbar-thin scrollbar-track-black scrollbar-thumb-[#F7AB0A]/80"
-        >
-          {/* <ul className="list-disc space-y-4 ml-5 text-lg"> */}
-          {experience.points.map((point, id) => (
-            <li key={id}>{point}</li>
-          ))}
+        {/* <ul */}
+        {/*   // className="list-disc space-y-4 ml-5 pr-5 text-lg h-96 max-w-4/5 overflow-scroll */}
+        {/*   // scrollbar-thin scrollbar-track-black scrollbar-thumb-[#F7AB0A]/80" */}
+        {/*   className="list-disc space-y-4 ml-5 text-lg h-96 overflow-y-scroll */}
+        {/*   scrollbar-thin scrollbar-track-black scrollbar-thumb-[#F7AB0A]/80" */}
+        {/* > */}
+        <ul className="list-disc space-y-4 ml-5 text-lg">
+          {experience.points &&
+            experience.points.map((point, id) => <li key={id}>{point}</li>)}
         </ul>
       </div>
     </article>

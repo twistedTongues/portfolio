@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Project } from "../typings";
 import { urlFor } from "../sanity";
@@ -33,7 +34,7 @@ const Projects = ({ projects }: Props) => {
             justify-center p-20 md:p-44 h-screen"
             key={i}
           >
-            <motion.img
+            <motion.div
               initial={{
                 y: -300,
                 opacity: 0,
@@ -41,9 +42,26 @@ const Projects = ({ projects }: Props) => {
               transition={{ duration: 1.2 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              src={urlFor(project?.image).url()}
-              alt="project"
-            />
+              className="relative h-[500px] w-[500px] md:w-[800px] md:h-[900px] xl:w-[1000px] xl:h-[1200px] "
+            >
+              <Image
+                className="object-contain"
+                fill
+                src={urlFor(project?.image).url()}
+                alt="project"
+              />
+            </motion.div>
+            {/* <motion.img */}
+            {/*   initial={{ */}
+            {/*     y: -300, */}
+            {/*     opacity: 0, */}
+            {/*   }} */}
+            {/*   transition={{ duration: 1.2 }} */}
+            {/*   whileInView={{ opacity: 1, y: 0 }} */}
+            {/*   viewport={{ once: true }} */}
+            {/*   src={urlFor(project?.image).url()} */}
+            {/*   alt="project" */}
+            {/* /> */}
 
             <div className="space-y-10 px-0 md:px-10 max-w-6xl">
               <h4 className="text-4xl font-semibold text-center">
@@ -53,18 +71,24 @@ const Projects = ({ projects }: Props) => {
                 {project?.title}
               </h4>
 
-              {project?.technologies.map((technology) => (
-                <div
-                  key={technology._id}
-                  className="flex items-center space-x-2 justify-center"
-                >
-                  <img
+              <div className="flex items-center space-x-2 justify-center">
+                {project?.technologies.map((technology) => (
+                  <Image
+                    key={technology._id}
                     className="h-10 w-10"
-                    alt="tech image"
+                    width={50}
+                    height={50}
+                    alt="tech-image"
                     src={urlFor(technology?.image).url()}
                   />
-                </div>
-              ))}
+                ))}
+                {/* <Image */}
+                {/*   className="h-10 w-10" */}
+                {/*   fill */}
+                {/*   alt="tech-image" */}
+                {/*   src={urlFor(technology?.image).url()} */}
+                {/* /> */}
+              </div>
 
               <p className="text-lg text-center md:text-left">
                 {project?.summary}

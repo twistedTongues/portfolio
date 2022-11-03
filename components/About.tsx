@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { PageInfo } from "../typings";
+import Image from "next/image";
 import { urlFor } from "../sanity";
 
 type Props = {
@@ -21,15 +22,20 @@ const About = ({ pageInfo }: Props) => {
         About
       </h3>
 
-      <motion.img
+      <motion.div
         initial={{ x: -200, opacity: 0 }}
         transition={{ duration: 1.2 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
-        src={urlFor(pageInfo?.profilePic).url()}
-        className="-mb-20 md:mb-0 flex-shrink-0 w-56 h-56 rounded-full
-        object-cover md:rounded-lg md:w-64 md:h-95 xl:w-[500px] xl:h-[600px]"
-      />
+        className="relative -mb-20 md:mb-0 flex-shrink-0 w-56 h-56 md:w-64 md:h-95 xl:w-[500px] xl:h-[600px]"
+      >
+        <Image
+          className="absolute rounded-full md:rounded-lg  object-cover"
+          alt="profile-pic"
+          src={urlFor(pageInfo?.profilePic).url()}
+          fill
+        />
+      </motion.div>
 
       <div className="space-y-10 px-0 md:px-10">
         <h4 className="text-4xl font-semibold">
