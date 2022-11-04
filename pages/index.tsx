@@ -83,7 +83,7 @@ export default function Home({
               className="rounded-full object-contain"
               fill
               alt="home-button"
-              src="https://i.imgur.com/e2yvD6A.png"
+              src="/images/homeButton.png"
             />
           </motion.div>
         </footer>

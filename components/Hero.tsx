@@ -47,22 +47,22 @@ const Hero = ({ pageInfo }: Props) => {
 
         <div className="pt-5">
           <Link href="#about">
-            <button className="px-6 py-2 border border-[#242424] rounded-full uppercase text-xs tracking-widest text-gray-500 transition-all hover:border-secondary/40 hover:text-secondary/40">
+            <button className="px-6 py-2 border border-[#242424] rounded-full uppercase text-xs tracking-widest text-gray-500 transition-all hover:border-secondary/40 hover:text-secondary/40 hover:-translate-y-0.5 active:-translate-y-[1px]">
               About
             </button>
           </Link>
           <Link href="#experience">
-            <button className="px-6 py-2 border border-[#242424] rounded-full uppercase text-xs tracking-widest text-gray-500 transition-all hover:border-secondary/40 hover:text-secondary/40">
+            <button className="px-6 py-2 border border-[#242424] rounded-full uppercase text-xs tracking-widest text-gray-500 transition-all hover:border-secondary/40 hover:text-secondary/40 hover:-translate-y-0.5 active:-translate-y-[1px]">
               Experience
             </button>
           </Link>
           <Link href="#skills">
-            <button className="px-6 py-2 border border-[#242424] rounded-full uppercase text-xs tracking-widest text-gray-500 transition-all hover:border-secondary/40 hover:text-secondary/40">
+            <button className="px-6 py-2 border border-[#242424] rounded-full uppercase text-xs tracking-widest text-gray-500 transition-all hover:border-secondary/40 hover:text-secondary/40 hover:-translate-y-0.5 active:-translate-y-[1px]">
               Skills
             </button>
           </Link>
           <Link href="#projects">
-            <button className="px-6 py-2 border border-[#242424] rounded-full uppercase text-xs tracking-widest text-gray-500 transition-all hover:border-secondary/40 hover:text-secondary/40">
+            <button className="px-6 py-2 border border-[#242424] rounded-full uppercase text-xs tracking-widest text-gray-500 transition-all hover:border-secondary/40 hover:text-secondary/40 hover:-translate-y-0.5 active:-translate-y-[1px]">
               Projects
             </button>
           </Link>

@@ -38,25 +38,27 @@ const ContactMe = ({ pageInfo }: Props) => {
       <div className="flex flex-col space-y-5 md:space-y-10">
         <h4 className="text-lg md:text-4xl font-semibold text-center">
           I have got just what you need.{" "}
-          <span className="decoration-secondary/50 underline">
+          <span className="decoration-secondary/50 underline inline-block hover:-translate-y-0.5">
             Let&apos;s talk
           </span>
         </h4>
 
         <div className="space-y-4 md:space-y-10">
-          <div className="flex items-center space-x-5 justify-center">
+          <div className="flex items-center space-x-5 justify-center hover:scale-110 ease-in-out duration-200">
             <PhoneIcon className="text-secondary h-7 w-7 animate-pulse" />
             <Link href={`tel:${pageInfo?.phoneNumber}`}>
               <p className="text-2xl">{pageInfo?.phoneNumber}</p>
             </Link>
           </div>
 
-          <div className="flex items-center space-x-5 justify-center">
+          <div className="flex items-center space-x-5 justify-center hover:scale-110 ease-in-out duration-200">
             <EnvelopeIcon className="text-secondary h-7 w-7 animate-pulse" />
-            <p className="text-2xl">{pageInfo?.email}</p>
+            <Link href={`mailto:${pageInfo?.email}`}>
+              <p className="text-2xl">{pageInfo?.email}</p>
+            </Link>
           </div>
 
-          <div className="flex items-center space-x-5 justify-center">
+          <div className="flex items-center space-x-5 justify-center hover:scale-110 ease-in-out duration-200">
             <MapPinIcon className="text-secondary h-7 w-7 animate-pulse" />
             <p className="text-2xl">{pageInfo?.address}</p>
           </div>
@@ -97,7 +99,7 @@ const ContactMe = ({ pageInfo }: Props) => {
           />
           <button
             type="submit"
-            className="bg-secondary py-5 px-10 rounded-md text-black font-bold text-lg "
+            className="bg-neutral py-5 px-10 rounded-md text-black font-bold text-lg active:shadow-xl hover:bg-secondary"
           >
             Submit
           </button>

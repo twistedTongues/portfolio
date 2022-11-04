@@ -27,10 +27,10 @@ const About = ({ pageInfo }: Props) => {
         transition={{ duration: 1.2 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
-        className="relative -mb-20 md:mb-0 flex-shrink-0 w-56 h-56 md:w-64 md:h-95 xl:w-[500px] xl:h-[600px]"
+        className="relative -mb-20 md:mb-0 flex-shrink-0 w-56 h-56 md:w-64 md:h-95 xl:w-[500px] xl:h-[600px] "
       >
         <Image
-          className="absolute rounded-full md:rounded-lg  object-cover"
+          className="absolute rounded-full md:rounded-lg object-cover hover:-translate-y-3"
           alt="profile-pic"
           src={urlFor(pageInfo?.profilePic).url()}
           fill
@@ -40,7 +40,9 @@ const About = ({ pageInfo }: Props) => {
       <div className="space-y-10 px-0 md:px-10">
         <h4 className="text-4xl font-semibold">
           Here is a{" "}
-          <span className="underline decoration-secondary/50">little</span>{" "}
+          <span className="underline decoration-secondary/50 inline-block hover:-translate-y-0.5">
+            little
+          </span>{" "}
           background
         </h4>
         <p className="text-sm">{pageInfo?.backgroundInformation}</p>
