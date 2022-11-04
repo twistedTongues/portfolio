@@ -18,7 +18,7 @@ const Header = ({ socials }: Props) => {
         initial={{ x: -500, opacity: 0, scale: 0.5 }}
         animate={{ x: 0, opacity: 1, scale: 1 }}
         transition={{ duration: 1.3 }}
-        className="flex flex-row items-center"
+        className="flex flex-row items-center hover:brightness-200"
       >
         {socials.map((social) => (
           <SocialIcon
@@ -35,7 +35,7 @@ const Header = ({ socials }: Props) => {
           initial={{ x: 500, opacity: 0, scale: 0.5 }}
           animate={{ x: 0, opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
-          className="flex flex-row items-center text-gray-300 cursor-pointer"
+          className="flex flex-row items-center text-gray-300 cursor-pointer hover:brightness-200"
         >
           <SocialIcon
             className="cursor-pointer"

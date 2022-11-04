@@ -5,7 +5,13 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: "#212126",
+        secondary: "#3abcca",
+        neutral: "#f6f5f4",
+      },
+    },
   },
   plugins: [require("tailwind-scrollbar")],
 };

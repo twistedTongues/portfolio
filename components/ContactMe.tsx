@@ -2,6 +2,7 @@ import React from "react";
 import { PhoneIcon, MapPinIcon, EnvelopeIcon } from "@heroicons/react/24/solid";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { PageInfo } from "../typings";
+import Link from "next/link";
 
 type Inputs = {
   name: string;
@@ -18,13 +19,15 @@ const ContactMe = ({ pageInfo }: Props) => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<Inputs>();
 
-  //NOTE! Better use email-js and clear form after submit
+  //Better use email-js
   const onSubmit: SubmitHandler<Inputs> = (formData) => {
     window.location.href = `mailto:markela02@gmail?subject=${formData.subject}
 &body=Hi, my name is${formData.name}. ${formData.message} (${formData.email})`;
+    reset();
   };
   return (
     <div className="h-screen relative flex flex-col text-center md:text-left md:flex-row max-w-7xl px-10 justify-evenly mx-auto items-center">
@@ -32,27 +35,29 @@ const ContactMe = ({ pageInfo }: Props) => {
         Contact
       </h3>
 
-      <div className="flex flex-col space-y-10">
-        <h4 className="text-4xl font-semibold text-center">
+      <div className="flex flex-col space-y-5 md:space-y-10">
+        <h4 className="text-lg md:text-4xl font-semibold text-center">
           I have got just what you need.{" "}
-          <span className="decoration-[#F7AB0A]/50 underline">
+          <span className="decoration-secondary/50 underline">
             Let&apos;s talk
           </span>
         </h4>
 
-        <div className="space-y-10">
+        <div className="space-y-4 md:space-y-10">
           <div className="flex items-center space-x-5 justify-center">
-            <PhoneIcon className="text-[#F7AB0A] h-7 w-7 animate-pulse" />
-            <p className="text-2xl">{pageInfo?.phoneNumber}</p>
+            <PhoneIcon className="text-secondary h-7 w-7 animate-pulse" />
+            <Link href={`tel:${pageInfo?.phoneNumber}`}>
+              <p className="text-2xl">{pageInfo?.phoneNumber}</p>
+            </Link>
           </div>
 
           <div className="flex items-center space-x-5 justify-center">
-            <EnvelopeIcon className="text-[#F7AB0A] h-7 w-7 animate-pulse" />
+            <EnvelopeIcon className="text-secondary h-7 w-7 animate-pulse" />
             <p className="text-2xl">{pageInfo?.email}</p>
           </div>
 
           <div className="flex items-center space-x-5 justify-center">
-            <MapPinIcon className="text-[#F7AB0A] h-7 w-7 animate-pulse" />
+            <MapPinIcon className="text-secondary h-7 w-7 animate-pulse" />
             <p className="text-2xl">{pageInfo?.address}</p>
           </div>
         </div>
@@ -63,34 +68,36 @@ const ContactMe = ({ pageInfo }: Props) => {
         >
           <div className="flex space-x-2">
             <input
-              {...register("name")}
+              {...(register("name"), { required: true })}
               placeholder="Name"
-              className="contactInput"
+              className="outline-none bg-slate-400/10 rounded-sm border-b px-6 py-4 border-[#242424] text-gray-500 placeholder-gray-500 transition-all focus:border-secondary/40 focus:text-secondary/40"
               type="text"
             />
+            {errors.name && "Name is required"}
             <input
-              {...register("email")}
+              {...(register("email"), { required: true })}
               placeholder="Email"
-              className="contactInput"
+              className="outline-none bg-slate-400/10 rounded-sm border-b px-6 py-4 border-[#242424] text-gray-500 placeholder-gray-500 transition-all focus:border-secondary/40 focus:text-secondary/40"
               type="email"
             />
+            {errors.email && "Email is required"}
           </div>
 
           <input
             {...register("subject")}
             placeholder="Subject"
-            className="contactInput"
+            className="outline-none bg-slate-400/10 rounded-sm border-b px-6 py-4 border-[#242424] text-gray-500 placeholder-gray-500 transition-all focus:border-secondary/40 focus:text-secondary/40"
             type="text"
           />
 
           <textarea
             {...register("message")}
             placeholder="Message"
-            className="contactInput"
+            className="outline-none bg-slate-400/10 rounded-sm border-b px-6 py-4 border-[#242424] text-gray-500 placeholder-gray-500 transition-all focus:border-secondary/40 focus:text-secondary/40"
           />
           <button
             type="submit"
-            className="bg-[#F7AB0A] py-5 px-10 rounded-md text-black font-bold text-lg"
+            className="bg-secondary py-5 px-10 rounded-md text-black font-bold text-lg "
           >
             Submit
           </button>

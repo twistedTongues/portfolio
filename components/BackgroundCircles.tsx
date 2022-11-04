@@ -30,7 +30,7 @@ const BackgroundCircles = () => {
         w-[500px] mt-52 "
       />
       <div
-        className="absolute rounded-full border border-[#F7AB0A] opacity-20 h-[650px]
+        className="absolute rounded-full border border-secondary opacity-20 h-[650px]
         w-[650px] mt-52 animate-pulse"
       />
       <div

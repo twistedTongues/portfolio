@@ -10,7 +10,7 @@ type Props = {
 
 const ExperienceCard = ({ experience }: Props) => {
   return (
-    <article className="flex flex-col rounded-lg items-center space-y-7 flex-shrink-0 w-[500px] md:w-[600px] xl:w-[900px] snap-center bg-[#292929] p-10 hover:opacity-100 opacity-40 cursor-pointer transtition-opacity duration-200 overflow-hidden">
+    <article className="flex flex-col rounded-lg items-center space-y-7 flex-shrink-0 w-[500px] md:w-[600px] xl:w-[900px] snap-center bg-[#34343C] p-10 hover:opacity-100 opacity-40 cursor-pointer transtition-opacity duration-200 overflow-hidden">
       <motion.div
         initial={{
           y: -100,
@@ -55,8 +55,8 @@ const ExperienceCard = ({ experience }: Props) => {
         {/* <ul */}
         {/*   // className="list-disc space-y-4 ml-5 pr-5 text-lg h-96 max-w-4/5 overflow-scroll */}
         {/*   // scrollbar-thin scrollbar-track-black scrollbar-thumb-[#F7AB0A]/80" */}
-        {/*   className="list-disc space-y-4 ml-5 text-lg h-96 overflow-y-scroll */}
-        {/*   scrollbar-thin scrollbar-track-black scrollbar-thumb-[#F7AB0A]/80" */}
+        {/*   // className="list-disc space-y-4 ml-5 text-lg h-96 overflow-y-scroll */}
+        {/*   // scrollbar-thin scrollbar-track-black scrollbar-thumb-[#F7AB0A]/80" */}
         {/* > */}
         <ul className="list-disc space-y-4 ml-5 text-lg">
           {experience.points &&

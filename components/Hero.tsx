@@ -42,21 +42,29 @@ const Hero = ({ pageInfo }: Props) => {
         </h2>
         <h1 className="text-5xl lg:text-6xl font-semibold px-10">
           <span className="mr-3">{text}</span>
-          <Cursor cursorColor="#F7AB0A" />
+          <Cursor cursorColor="#3abcca" />
         </h1>
 
         <div className="pt-5">
           <Link href="#about">
-            <button className="heroButton">About</button>
+            <button className="px-6 py-2 border border-[#242424] rounded-full uppercase text-xs tracking-widest text-gray-500 transition-all hover:border-secondary/40 hover:text-secondary/40">
+              About
+            </button>
           </Link>
           <Link href="#experience">
-            <button className="heroButton">Experience</button>
+            <button className="px-6 py-2 border border-[#242424] rounded-full uppercase text-xs tracking-widest text-gray-500 transition-all hover:border-secondary/40 hover:text-secondary/40">
+              Experience
+            </button>
           </Link>
           <Link href="#skills">
-            <button className="heroButton">Skills</button>
+            <button className="px-6 py-2 border border-[#242424] rounded-full uppercase text-xs tracking-widest text-gray-500 transition-all hover:border-secondary/40 hover:text-secondary/40">
+              Skills
+            </button>
           </Link>
           <Link href="#projects">
-            <button className="heroButton">Projects</button>
+            <button className="px-6 py-2 border border-[#242424] rounded-full uppercase text-xs tracking-widest text-gray-500 transition-all hover:border-secondary/40 hover:text-secondary/40">
+              Projects
+            </button>
           </Link>
         </div>
       </div>
